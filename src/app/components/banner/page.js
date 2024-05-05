@@ -2,7 +2,8 @@ import styles from "./pager.module.css";
 import ButtonBanner from "../buttonBanner/page";
 
 
-const Banner = ({title, subTitle, imgUrl, videoId}) => {
+const Banner = (props) => {
+    const {title, subTitle, imgUrl, videoId} = props;
 
 
     return (
@@ -24,9 +25,9 @@ const Banner = ({title, subTitle, imgUrl, videoId}) => {
             </secton>
 
             <section className={styles.bannerImg}
-                style={{
-                    backgroundImage: `url(${imgUrl}`,
-                }}
+                     style={{
+                         backgroundImage: `url(${imgUrl}`,
+                     }}
             > </section>
         </main>
     );

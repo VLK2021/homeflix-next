@@ -1,0 +1,30 @@
+.navItems {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    list-style: none;
+}
+
+.navItem {
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-right: 0.75rem;
+}
+
+.navItem2 {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .navItems {
+        margin-left: 3rem;
+    }
+
+    .navItem {
+        margin-right: 1.25rem;
+    }
+}
