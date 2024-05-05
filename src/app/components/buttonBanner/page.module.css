@@ -1,0 +1,26 @@
+.btnWithIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.25rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    background-color: var(--white10);
+    width: 8rem;
+}
+
+.playText {
+    color: rgb(31, 41, 55);
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding-left: 0.25rem;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .playText {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
