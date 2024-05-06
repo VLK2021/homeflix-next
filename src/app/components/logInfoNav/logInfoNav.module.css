@@ -1,0 +1,47 @@
+.usernameBtn {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--white20);
+}
+
+.username {
+    font-size: 1rem;
+}
+
+.navDropdown {
+    position: absolute;
+    margin-left: auto;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: var(--black50);
+    border-width: 1px;
+    color: var(--white20);
+    border-radius: 0.25rem;
+    border-color: var(--blue);
+}
+
+.linkName {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    display: block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    font-size: 1rem;
+    line-height: 1.25rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.linkName:hover {
+    text-decoration: underline;
+}
+
+.lineWrapper {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}

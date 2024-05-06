@@ -3,9 +3,12 @@ import Image from "next/image";
 
 import styles from './Navbar.module.css';
 import NavUlMenu from "../navUlMenu/navUlMenu";
+import LogInfoNav from "../logInfoNav/logInfoNav";
 
 
 const Navbar = () => {
+
+
     return (
         <main className={styles.container}>
             <section className={styles.wrapper}>
@@ -24,27 +27,7 @@ const Navbar = () => {
 
                 <nav className={styles.navContainer}>
                     <section>
-                        {/*<button className={styles.usernameBtn} onClick={handleShowDropdown}>*/}
-                        {/*    <p className={styles.username}>{username}</p>*/}
-                        {/*    /!** Expand more icon *!/*/}
-                        {/*    <Image*/}
-                        {/*        src={'/static/expand_more.svg'}*/}
-                        {/*        alt="Expand dropdown"*/}
-                        {/*        width="24"*/}
-                        {/*        height="24"*/}
-                        {/*    />*/}
-                        {/*</button>*/}
-
-                        {/*{showDropdown && (*/}
-                        {/*    <div className={styles.navDropdown}>*/}
-                        {/*        <div>*/}
-                        {/*            /!*<a className={styles.linkName} onClick={handleSignout}>*!/*/}
-                        {/*            /!*    Sign out*!/*/}
-                        {/*            /!*</a>*!/*/}
-                        {/*            /!*<div className={styles.lineWrapper}></div>*!/*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*)}*/}
+                        <LogInfoNav/>
                     </section>
                 </nav>
             </section>
