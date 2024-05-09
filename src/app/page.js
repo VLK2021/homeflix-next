@@ -5,9 +5,14 @@ import SectionCard from "./components/card/section-card";
 import {getVideos} from "./lib/videos";
 
 
-export default function Home() {
+export async function getData() {
+    return getVideos();
+}
 
-    const disneyVideos = getVideos();
+
+export default async function Home() {
+const disneyVideos = await getData();
+
 
     return (
         <main className={styles.main}>
@@ -29,7 +34,7 @@ export default function Home() {
                     size="small"
                 />
 
-                <SectionCard title="Travel" size="medium" />
+                <SectionCard title="Travel" size="medium" videos={disneyVideos}/>
 
                 <SectionCard
                     title="Productivity"
@@ -37,7 +42,7 @@ export default function Home() {
                     size="medium"
                 />
 
-                <SectionCard title="Popular" size="small" />
+                <SectionCard title="Popular" size="small"/>
             </section>
         </main>
     );
