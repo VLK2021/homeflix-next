@@ -7,11 +7,13 @@ import {getVideos} from "./lib/videos";
 
 export async function getData() {
     return getVideos();
+    // const res = await fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=disney&type=video&maxResults=25&key=')
+    // return res.json();
 }
 
 
 export default async function Home() {
-const disneyVideos = await getData();
+    const disneyVideos = await getData();
 
 
     return (
