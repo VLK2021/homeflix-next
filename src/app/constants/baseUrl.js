@@ -1,4 +1,4 @@
-export const BASE_URL = "youtube.googleapis.com/youtube/v3";
+export const BASE_URL = "https://youtube.googleapis.com/youtube/v3";
 
 //URL = `search?part=snippet&q=${searchQuery}&type=video`;
 //`https://${BASE_URL}/${url}&maxResults=25&key=${YOUTUBE_API_KEY}`

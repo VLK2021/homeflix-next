@@ -5,15 +5,15 @@ import SectionCard from "./components/card/section-card";
 import {getVideos} from "./lib/videos";
 
 
-export async function getData() {
-    return getVideos();
-    // const res = await fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=disney&type=video&maxResults=25&key=')
-    // return res.json();
+export async function getData(searchQuery) {
+    return getVideos(searchQuery);
 }
 
 
 export default async function Home() {
-    const disneyVideos = await getData();
+    const disneyVideos = await getData("disney trailer");
+    const travelVideos = await getData("travel");
+    const productivityVideos = await getData("Productivity");
 
 
     return (
@@ -30,21 +30,13 @@ export default async function Home() {
             <section className={styles.sectionWrapper}>
                 <SectionCard title="Disney" size="large" videos={disneyVideos}/>
 
-                <SectionCard
-                    title="Watch it again"
-                    // videos={watchItAgainVideos}
-                    size="small"
-                />
+                <SectionCard title="Watch it again" videos={disneyVideos} size="small"/>
 
-                <SectionCard title="Travel" size="medium" videos={disneyVideos}/>
+                <SectionCard title="Travel" size="small" videos={travelVideos}/>
 
-                <SectionCard
-                    title="Productivity"
-                    // videos={productivityVideos}
-                    size="medium"
-                />
+                <SectionCard title="Productivity" videos={productivityVideos} size="medium"/>
 
-                <SectionCard title="Popular" size="small"/>
+                <SectionCard title="Popular" size="small" videos={disneyVideos}/>
             </section>
         </main>
     );
