@@ -2,18 +2,15 @@ import styles from "./page.module.css";
 import Banner from "./components/banner/page";
 import Navbar from "./components/nav/navbar";
 import SectionCard from "./components/card/section-card";
-import {getVideos} from "./lib/videos";
+import {getPopularVideos, getVideos} from "./lib/videos";
 
-
-export async function getData(searchQuery) {
-    return getVideos(searchQuery);
-}
 
 
 export default async function Home() {
-    const disneyVideos = await getData("disney trailer");
-    const travelVideos = await getData("travel");
-    const productivityVideos = await getData("Productivity");
+    const disneyVideos = await getVideos("disney trailer");
+    const travelVideos = await getVideos("travel");
+    const popularVideos = await getPopularVideos();
+    const productivityVideos = await getVideos("Productivity");
 
 
     return (
@@ -36,7 +33,7 @@ export default async function Home() {
 
                 <SectionCard title="Productivity" videos={productivityVideos} size="medium"/>
 
-                <SectionCard title="Popular" size="small" videos={disneyVideos}/>
+                <SectionCard title="Popular" size="small" videos={popularVideos}/>
             </section>
         </main>
     );

@@ -1,10 +1,13 @@
 import {YOUTUBE_API_KEY} from "../constants/youtubeApiKey";
 import {BASE_URL} from "../constants/baseUrl";
+import {urls} from "../constants/urls";
 
 
 export const getVideos = async (searchQuery) => {
+    const URL = `${BASE_URL}/${urls.allVideos(searchQuery)}&key=${YOUTUBE_API_KEY}`;
+
     try {
-        const response = await fetch(`${BASE_URL}/search?part=snippet&q=${searchQuery}&type=video&maxResults=30&key=${YOUTUBE_API_KEY}`);
+        const response = await fetch(URL);
         const data = await response.json();
 
         if (data?.error) {
@@ -26,3 +29,26 @@ export const getVideos = async (searchQuery) => {
         return [];
     }
 }
+
+export const getPopularVideos = async () => {
+    const URL = `${BASE_URL}/${urls.popularVideos()}&key=${YOUTUBE_API_KEY}`;
+
+    try {
+        const response = await fetch(URL);
+        const data = await response.json();
+
+        if (data?.error) {
+            console.error("Youtube API error", data.error);
+            return [];
+        }
+
+        return data.items.map((item) => ({
+            title: item.snippet.title,
+            imgUrl: item.snippet.thumbnails.high.url,
+            id: item.id
+        }));
+    } catch (error) {
+        console.error("Something went wrong with video library", error);
+        return [];
+    }
+};
