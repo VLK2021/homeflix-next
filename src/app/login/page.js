@@ -1,19 +1,14 @@
-import Head from 'next/head';
 import Link from "next/link";
 import Image from "next/image";
 
 import styles from "./login.module.css";
+import InputForm from "../components/inputForm/inputForm";
 
 
-const Page = () => {
-
+const Login = () => {
 
     return (
         <main className={styles.container}>
-            <Head>
-                <title>Netflix SignIn</title>
-            </Head>
-
             <header className={styles.header}>
                 <section className={styles.headerWrapper}>
                     <Link className={styles.logoLink} href="/">
@@ -30,24 +25,10 @@ const Page = () => {
             </header>
 
             <section className={styles.main}>
-                <article className={styles.mainWrapper}>
-                    <h1 className={styles.signinHeader}>Sign In</h1>
-
-                    <input
-                        type="text"
-                        placeholder="Email address"
-                        className={styles.emailInput}
-                        // onChange={handleOnChangeEmail}
-                    />
-
-                    {/*<p className={styles.userMsg}>{userMsg}</p>*/}
-                    <button className={styles.loginBtn}>
-                        {'Sign in'}
-                    </button>
-                </article>
+                <InputForm/>
             </section>
         </main>
     );
 };
 
-export default Page;
+export default Login;
