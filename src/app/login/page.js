@@ -5,6 +5,12 @@ import styles from "./login.module.css";
 import InputForm from "../components/inputForm/inputForm";
 
 
+export const metadata = {
+    title: 'Sign In page',
+    description: 'Sign In page on Netflix',
+}
+
+
 const Login = () => {
 
     return (
