@@ -1,13 +1,15 @@
 "use client"
 import {useState} from "react";
 
-import styles from "../../login/login.module.css";
+import styles from './inputForm.module.css';
+import {useRouter} from "next/navigation";
 
 
 const InputForm = () => {
     const [email, setEmail] = useState('');
     const [userMsg, setUserMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const handleOnChangeEmail = (e) => {
         setUserMsg('');
@@ -16,10 +18,12 @@ const InputForm = () => {
     };
 
     const handleLoginWithEmail = async (e) => {
-        if (email) {
+        e.preventDefault();
+        if (email === 'www') {
             // log in a user by their email
             try {
                 setIsLoading(true);
+                router.push('/');
 
                 // const didToken = await magic.auth.loginWithMagicLink({
                 //     email,

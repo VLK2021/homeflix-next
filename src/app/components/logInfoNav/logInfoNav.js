@@ -20,6 +20,8 @@ const LogInfoNav = () => {
         e.preventDefault();
 
         try {
+            router.push('/login');
+
             // const response = await fetch('/api/logout', {
             //     method: 'POST',
             //     headers: {
