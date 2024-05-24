@@ -7,10 +7,17 @@ import {getPopularVideos, getVideos} from "./lib/videos";
 
 
 export default async function Home() {
-    const disneyVideos = await getVideos("disney trailer");
-    const travelVideos = await getVideos("travel");
-    const popularVideos = await getPopularVideos();
-    const productivityVideos = await getVideos("Productivity");
+    // const disneyVideos = await getVideos("disney trailer");
+    // const travelVideos = await getVideos("travel");
+    // const popularVideos = await getPopularVideos();
+    // const productivityVideos = await getVideos("Productivity");
+
+    const [disneyVideos, travelVideos, popularVideos, productivityVideos] = await Promise.all([
+        getVideos("disney trailer"),
+        getVideos("travel"),
+        getPopularVideos(),
+        getVideos("Productivity")
+    ]);
 
 
     return (
