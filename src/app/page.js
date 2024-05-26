@@ -3,17 +3,14 @@ import Banner from "./components/banner/page";
 import Navbar from "./components/nav/navbar";
 import SectionCard from "./components/card/section-card";
 import {getPopularVideos, getVideos} from "./lib/videos";
-
+import MagicClient from "./lib/magic-comp-client";
 
 
 export default async function Home() {
-
-    const [disneyVideos, travelVideos, popularVideos, productivityVideos] = await Promise.all([
-        getVideos("disney trailer"),
-        getVideos("travel"),
-        getPopularVideos(),
-        getVideos("Productivity")
-    ]);
+    const disneyVideos = await getVideos("disney trailer");
+    const travelVideos = await getVideos("travel");
+    const popularVideos = await getPopularVideos();
+    const productivityVideos = await getVideos("Productivity");
 
 
     return (
@@ -38,6 +35,8 @@ export default async function Home() {
 
                 <SectionCard title="Popular" size="small" videos={popularVideos}/>
             </section>
+
+            <MagicClient/>
         </main>
     );
 }
