@@ -3,7 +3,6 @@ import Banner from "./components/banner/page";
 import Navbar from "./components/nav/navbar";
 import SectionCard from "./components/card/section-card";
 import {getPopularVideos, getVideos} from "./lib/videos";
-import MagicClient from "./lib/magic-comp-client";
 
 
 export default async function Home() {
@@ -11,6 +10,7 @@ export default async function Home() {
     const travelVideos = await getVideos("travel");
     const popularVideos = await getPopularVideos();
     const productivityVideos = await getVideos("Productivity");
+
 
 
     return (
@@ -35,8 +35,6 @@ export default async function Home() {
 
                 <SectionCard title="Popular" size="small" videos={popularVideos}/>
             </section>
-
-            <MagicClient/>
         </main>
     );
 }

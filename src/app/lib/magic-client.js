@@ -1,31 +1,29 @@
-// import {Magic} from 'magic-sdk';
-//
-//
-// const createMagic = () => {
-//     return (
-//         typeof window !== "undefined" &&
-//         new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_API_KEY)
-//     );
-// };
-//
-// export const magic = createMagic();
+import {Magic} from 'magic-sdk';
 
-// lib/magic-client.js
-import { Magic } from 'magic-sdk';
 
-let magic;
-
-export const createMagic = () => {
-    if (!magic && typeof window !== "undefined") {
-        magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_API_KEY);
-    }
-    return magic;
+const createMagic = () => {
+    return (
+        typeof window !== "undefined" &&
+        new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_API_KEY)
+    );
 };
 
-export const getMagic = () => {
-    return magic;
-};
-
-
+export const magic = createMagic();
 
 console.log('magic setup', magic);
+
+
+
+// lib/magic-client.js
+// import { Magic } from 'magic-sdk';
+//
+// let magic;
+//
+// const createMagic = () => {
+//     if (typeof window !== "undefined") {
+//         magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_API_KEY);
+//     }
+//     return magic;
+// };
+//
+// console.log('magic setup', magic);
