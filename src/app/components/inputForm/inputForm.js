@@ -1,8 +1,9 @@
 "use client"
 import {useState} from "react";
+import {useRouter} from "next/navigation";
 
 import styles from './inputForm.module.css';
-import {useRouter} from "next/navigation";
+import {magic} from "../../lib/magic-client";
 
 
 const InputForm = () => {
@@ -19,17 +20,16 @@ const InputForm = () => {
 
     const handleLoginWithEmail = async (e) => {
         e.preventDefault();
-        if (email === 'www') {
+        if (email) {
             // log in a user by their email
             try {
                 setIsLoading(true);
-                router.push('/');
+                // router.push('/');
 
-                // const didToken = await magic.auth.loginWithMagicLink({
-                //     email,
-                // });
-                // if (didToken) {
-                //     const response = await fetch('/api/login', {
+                const didToken = await magic.auth.loginWithMagicLink({email});
+                if (didToken) {
+                    console.log(email);
+                    //     const response = await fetch('/api/login', {
                 //         method: 'POST',
                 //         headers: {
                 //             Authorization: `Bearer ${didToken}`,
@@ -44,7 +44,7 @@ const InputForm = () => {
                 //         setIsLoading(false);
                 //         setUserMsg('Something went wrong logging in');
                 //     }
-                // }
+                }
             } catch (error) {
                 // Handle errors if required!
                 console.error('Something went wrong logging in', error);
