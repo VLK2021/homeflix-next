@@ -3,6 +3,8 @@ import Banner from "./components/banner/page";
 import Navbar from "./components/nav/navbar";
 import SectionCard from "./components/card/section-card";
 import {getPopularVideos, getVideos} from "./lib/videos";
+import { magic } from "./lib/magic-client";
+
 
 
 export default async function Home() {
@@ -11,7 +13,8 @@ export default async function Home() {
     const popularVideos = await getPopularVideos();
     const productivityVideos = await getVideos("Productivity");
 
-
+    console.log('magic-from home', {magic});
+    console.log('magic-from home');
 
     return (
         <main className={styles.main}>
