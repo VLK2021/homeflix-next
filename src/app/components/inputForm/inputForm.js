@@ -14,8 +14,8 @@ const InputForm = () => {
 
     const handleOnChangeEmail = (e) => {
         setUserMsg('');
-        const email = e.target.value;
-        setEmail(email);
+        const emailCurrent = e.target.value;
+        setEmail(emailCurrent);
     };
 
     const handleLoginWithEmail = async (e) => {
@@ -24,11 +24,11 @@ const InputForm = () => {
             // log in a user by their email
             try {
                 setIsLoading(true);
-                // router.push('/');
+
 
                 const didToken = await magic.auth.loginWithMagicLink({email});
                 if (didToken) {
-                    console.log(email);
+                    router.push('/');
                     //     const response = await fetch('/api/login', {
                 //         method: 'POST',
                 //         headers: {
