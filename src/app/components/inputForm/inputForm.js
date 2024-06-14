@@ -1,6 +1,6 @@
 "use client"
-import {useState} from "react";
-import {useRouter} from "next/navigation";
+import {useEffect, useState} from "react";
+import {usePathname, useRouter} from "next/navigation";
 
 import styles from './inputForm.module.css';
 import {magic} from "../../lib/magic-client";
@@ -11,6 +11,12 @@ const InputForm = () => {
     const [userMsg, setUserMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, [pathname]);
+
 
     const handleOnChangeEmail = (e) => {
         setUserMsg('');
@@ -21,6 +27,7 @@ const InputForm = () => {
     const handleLoginWithEmail = async (e) => {
         e.preventDefault();
         if (email) {
+            console.log(email);
             // log in a user by their email
             try {
                 setIsLoading(true);

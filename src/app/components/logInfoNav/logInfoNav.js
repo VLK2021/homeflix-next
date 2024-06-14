@@ -1,15 +1,33 @@
 'use client'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 import styles from './logInfoNav.module.css';
+import {magic} from "../../lib/magic-client";
 
 
-const LogInfoNav = () => {
+const LogInfoNav =  () => {
     const [showDropdown, setShowDropdown] = useState(false);
-    const [username, setUsername] = useState('vf@gmail.com');
+    const [username, setUsername] = useState('');
+    const [didToken, setDidToken] = useState('');
     const router = useRouter();
+
+    useEffect(() => {
+        const applyUsernameInNav = async () => {
+            try {
+                const { email, issuer } = await magic.user.getInfo();
+                const didTokenCurrent = await magic.user.getIdToken();
+                if (email) {
+                    setUsername(email);
+                    setDidToken(didTokenCurrent);
+                }
+            } catch (error) {
+                console.error('Error retrieving email', error);
+            }
+        };
+        applyUsernameInNav();
+    }, []);
 
     const handleShowDropdown = (e) => {
         e.preventDefault();
