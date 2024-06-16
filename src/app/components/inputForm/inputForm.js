@@ -27,11 +27,9 @@ const InputForm = () => {
     const handleLoginWithEmail = async (e) => {
         e.preventDefault();
         if (email) {
-            console.log(email);
             // log in a user by their email
             try {
                 setIsLoading(true);
-
 
                 const didToken = await magic.auth.loginWithMagicLink({email});
                 if (didToken) {

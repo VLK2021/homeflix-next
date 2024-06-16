@@ -38,6 +38,9 @@ const LogInfoNav =  () => {
         e.preventDefault();
 
         try {
+            await magic.user.logout();
+
+            console.log(await magic.user.isLoggedIn());
             router.push('/login');
 
             // const response = await fetch('/api/logout', {
