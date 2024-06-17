@@ -9,6 +9,9 @@ const createMagic = () => {
 };
 
 export const magic = createMagic();
+console.log('from magic server 13', {magic});
+
+
 
 
 
