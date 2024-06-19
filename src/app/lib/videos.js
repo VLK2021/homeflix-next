@@ -7,7 +7,12 @@ export const getVideos = async (searchQuery) => {
     const URL = `${BASE_URL}/${urls.allVideos(searchQuery)}&key=${YOUTUBE_API_KEY}`;
 
     try {
-        const response = await fetch(URL);
+        const response = await fetch(URL, {
+            cache: 'force-cache',
+            next: {
+                revalidate: 200
+            }}
+        );
         const data = await response.json();
 
         if (data?.error) {
@@ -34,7 +39,11 @@ export const getPopularVideos = async () => {
     const URL = `${BASE_URL}/${urls.popularVideos()}&key=${YOUTUBE_API_KEY}`;
 
     try {
-        const response = await fetch(URL);
+        const response = await fetch(URL, {
+            cache: 'force-cache',
+            next: {
+                revalidate: 200
+            }});
         const data = await response.json();
 
         if (data?.error) {
