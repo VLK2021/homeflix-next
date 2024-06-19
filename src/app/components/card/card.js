@@ -41,6 +41,7 @@ const {imgUrl, size, shouldScale = true, id = 0} = props;
                     src={imgSrc}
                     alt="image"
                     fill={true}
+                    sizes={size}
                     onError={handleOnError}
                     className={styles.cardImg}
                 />
