@@ -28,7 +28,7 @@ const NavUlMenu = () => {
 
     const handleOnClickMyList = (e) => {
         e.preventDefault();
-        router.push('/browse/my-list');
+        router.push('/myList');
     };
 
 
