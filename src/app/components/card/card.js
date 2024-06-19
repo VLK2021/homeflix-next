@@ -5,7 +5,7 @@ import cls from "classnames";
 import { motion } from "framer-motion"
 
 import styles from './card.module.css';
-import {defaultImage} from '../../data/defaultImg';
+import {defaultImage} from '../../../data/defaultImg';
 
 
 const Card = (props) => {

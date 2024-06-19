@@ -2,7 +2,7 @@
 import {useRouter} from "next/navigation";
 
 import styles from './navUlMenu.module.css';
-import {magic} from "../../lib/magic-client";
+import {magic} from "../../../lib/magic-client";
 import {useEffect} from "react";
 
 

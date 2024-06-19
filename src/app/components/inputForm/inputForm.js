@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
 
 import styles from './inputForm.module.css';
-import {magic} from "../../lib/magic-client";
+import {magic} from "../../../lib/magic-client";
 
 
 const InputForm = () => {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 import styles from './logInfoNav.module.css';
-import {magic} from "../../lib/magic-client";
+import {magic} from "../../../lib/magic-client";
 
 
 const LogInfoNav =  () => {

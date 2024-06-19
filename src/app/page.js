@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import Banner from "./components/banner/page";
 import Navbar from "./components/nav/navbar";
 import SectionCard from "./components/card/section-card";
-import {getPopularVideos, getVideos} from "./lib/videos";
+import {getPopularVideos, getVideos} from "../lib/videos";
 
 
 export default async function Home() {
