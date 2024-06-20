@@ -8,7 +8,7 @@ export const getVideos = async (searchQuery) => {
 
     try {
         const response = await fetch(URL, {
-            cache: 'force-cache',
+            // cache: 'force-cache',
             next: {
                 revalidate: 200
             }}
@@ -40,7 +40,7 @@ export const getPopularVideos = async () => {
 
     try {
         const response = await fetch(URL, {
-            cache: 'force-cache',
+            // cache: 'force-cache',
             next: {
                 revalidate: 200
             }});
@@ -55,6 +55,34 @@ export const getPopularVideos = async () => {
             title: item.snippet.title,
             imgUrl: item.snippet.thumbnails.high.url,
             id: item.id
+        }));
+    } catch (error) {
+        console.error("Something went wrong with video library", error);
+        return [];
+    }
+};
+
+
+export const getVideoById = async (id) => {
+    const URL = `${BASE_URL}/${urls.videoById(id)}&key=${YOUTUBE_API_KEY}`;
+
+    try {
+        const response = await fetch(URL);
+        const data = await response.json();
+
+        if (data?.error) {
+            console.error("Youtube API error", data.error);
+            return [];
+        }
+
+        return data.items.map((item) => ({
+            title: item.snippet.title,
+            imgUrl: item.snippet.thumbnails.high.url,
+            id: item.id,
+            description: item.snippet.description,
+            publishTime: item.snippet.publishedAt,
+            channelTitle: item.snippet.channelTitle,
+            statistics: item.statistics ? item.statistics : { viewCount: 0 },
         }));
     } catch (error) {
         console.error("Something went wrong with video library", error);
