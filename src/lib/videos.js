@@ -82,6 +82,7 @@ export const getVideoById = async (id) => {
             description: item.snippet.description,
             publishTime: item.snippet.publishedAt,
             channelTitle: item.snippet.channelTitle,
+            channelId: item.snippet.channelId,
             statistics: item.statistics ? item.statistics : { viewCount: 0 },
         }));
     } catch (error) {
