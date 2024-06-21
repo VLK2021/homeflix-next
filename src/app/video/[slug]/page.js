@@ -1,19 +1,17 @@
-
 import React from 'react';
 
 import styles from './SingleItem.module.css';
 import {getVideoById} from "../../../lib/videos";
+import SingleMovie from "../../components/SingleMovie/SingleMovie";
 
 
-const SingleItem = async ({params}) => {
+const SingleItem =  async ({params}) => {
     const dataVideo = await getVideoById(params.slug);
-    const {title, imgUrl, id, description, publishTime, channelTitle, statistics} = dataVideo[0];
-
 
 
     return (
         <main className={styles.wrap}>
-            {title}
+            <SingleMovie movie={dataVideo[0]}/>
         </main>
     );
 };
