@@ -1,10 +1,12 @@
 "use client"
 import {useRouter} from "next/navigation";
-
-import styles from './SingleMovie.module.css';
 import {useState} from "react";
 import clsx from "classnames";
 import Modal from 'react-modal';
+
+import styles from './SingleMovie.module.css';
+import Navbar from "../nav/navbar";
+
 
 
 const SingleMovie = ({movie}) => {
@@ -16,9 +18,19 @@ const SingleMovie = ({movie}) => {
     const [toggleLike, setToggleLike] = useState(false);
     const [toggleDisLike, setToggleDisLike] = useState(false);
 
+    const handleToggleLike = () => {
+
+    }
+
+    const handleToggleDislike = () => {
+
+    }
+
 
     return (
         <main>
+            <Navbar/>
+
             <Modal
                 isOpen={true}
                 contentLabel="Watch the video"
@@ -26,7 +38,7 @@ const SingleMovie = ({movie}) => {
                 className={styles.modal}
                 overlayClassName={styles.overlay}
             >
-                <button onClick={() => router.back()}>back</button>
+                <button onClick={() => router.back()} className={styles.btn}>back</button>
 
                 <iframe
                     id="ytplayer"
@@ -34,32 +46,32 @@ const SingleMovie = ({movie}) => {
                     type="text/html"
                     width="100%"
                     height="360"
-                    src={`https://www.youtube.com/embed/${id}?autoplay=0&origin=http://example.com&controls=0&rel=1`}
+                    src={`https://www.youtube.com/embed/${id}?autoplay=0&origin=http://example.com&rel=1`}
                     frameBorder="0"
                 > </iframe>
 
-                {/*<div className={styles.likeDislikeBtnWrapper}>*/}
-                {/*    <div className={styles.likeBtnWrapper}>*/}
-                {/*        <button onClick={handleToggleLike}>*/}
-                {/*            <div className={styles.btnWrapper}>*/}
-                {/*                /!*<Like selected={toggleLike}/>*!/*/}
-                {/*            </div>*/}
-                {/*        </button>*/}
-                {/*    </div>*/}
-                {/*    <button onClick={handleToggleDislike}>*/}
-                {/*        <div className={styles.btnWrapper}>*/}
-                {/*            /!*<DisLike selected={toggleDisLike}/>*!/*/}
-                {/*        </div>*/}
-                {/*    </button>*/}
-                {/*</div>*/}
-                <div className={styles.modalBody}>
-                    <div className={styles.modalBodyContent}>
-                        <div className={styles.col1}>
+                <section className={styles.likeDislikeBtnWrapper}>
+                    <article className={styles.likeBtnWrapper}>
+                        <button onClick={handleToggleLike}>
+                            <div className={styles.btnWrapper}>
+                                {/*<Like selected={toggleLike}/>*/}
+                            </div>
+                        </button>
+                    </article>
+                    <button onClick={handleToggleDislike}>
+                        <div className={styles.btnWrapper}>
+                            {/*<DisLike selected={toggleDisLike}/>*/}
+                        </div>
+                    </button>
+                </section>
+                <section className={styles.modalBody}>
+                    <section className={styles.modalBodyContent}>
+                        <article className={styles.col1}>
                             <p className={styles.publishTime}>{publishTime}</p>
                             <p className={styles.title}>{title}</p>
                             <p className={styles.description}>{description}</p>
-                        </div>
-                        <div className={styles.col2}>
+                        </article>
+                        <article className={styles.col2}>
                             <p className={clsx(styles.subText, styles.subTextWrapper)}>
                                 <span className={styles.textColor}>Cast: </span>
                                 <span className={styles.channelTitle}>{channelTitle}</span>
@@ -68,9 +80,9 @@ const SingleMovie = ({movie}) => {
                                 <span className={styles.textColor}>View Count: </span>
                                 <span className={styles.channelTitle}>{viewCount}</span>
                             </p>
-                        </div>
-                    </div>
-                </div>
+                        </article>
+                    </section>
+                </section>
             </Modal>
         </main>
     );

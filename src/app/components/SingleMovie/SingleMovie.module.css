@@ -15,6 +15,15 @@
     border: 1px solid var(--shadow10);
 }
 
+.btn {
+    width: 100%;
+    padding: 0.5rem;
+    background: gray;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
 .overlay {
     top: 0;
     left: 0;
