@@ -10,7 +10,7 @@ export const getVideos = async (searchQuery) => {
         const response = await fetch(URL, {
             // cache: 'force-cache',
             next: {
-                revalidate: 200
+                revalidate: 10
             }}
         );
         const data = await response.json();
@@ -40,9 +40,8 @@ export const getPopularVideos = async () => {
 
     try {
         const response = await fetch(URL, {
-            // cache: 'force-cache',
             next: {
-                revalidate: 200
+                revalidate: 10
             }});
         const data = await response.json();
 
@@ -67,7 +66,11 @@ export const getVideoById = async (id) => {
     const URL = `${BASE_URL}/${urls.videoById(id)}&key=${YOUTUBE_API_KEY}`;
 
     try {
-        const response = await fetch(URL);
+        const response = await fetch(URL, {
+            // cache: 'force-cache',
+            next: {
+                revalidate: 10
+            }});
         const data = await response.json();
 
         if (data?.error) {

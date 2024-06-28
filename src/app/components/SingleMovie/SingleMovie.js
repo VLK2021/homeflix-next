@@ -6,6 +6,8 @@ import Modal from 'react-modal';
 
 import styles from './SingleMovie.module.css';
 import Navbar from "../nav/navbar";
+import Like from "../icons/like-icon";
+import DisLike from "../icons/dislike-icon";
 
 
 
@@ -28,7 +30,7 @@ const SingleMovie = ({movie}) => {
 
 
     return (
-        <main>
+        <main className={styles.wrap}>
             <Navbar/>
 
             <Modal
@@ -54,13 +56,13 @@ const SingleMovie = ({movie}) => {
                     <article className={styles.likeBtnWrapper}>
                         <button onClick={handleToggleLike}>
                             <div className={styles.btnWrapper}>
-                                {/*<Like selected={toggleLike}/>*/}
+                                <Like selected={toggleLike}/>
                             </div>
                         </button>
                     </article>
                     <button onClick={handleToggleDislike}>
                         <div className={styles.btnWrapper}>
-                            {/*<DisLike selected={toggleDisLike}/>*/}
+                            <DisLike selected={toggleDisLike}/>
                         </div>
                     </button>
                 </section>
