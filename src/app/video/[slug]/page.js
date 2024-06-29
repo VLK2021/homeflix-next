@@ -11,6 +11,7 @@ const SingleItem =  async ({params}) => {
 
     return (
         <main className={styles.wrap}>
+
             <SingleMovie movie={dataVideo[0]}/>
         </main>
     );
