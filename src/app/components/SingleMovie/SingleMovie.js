@@ -11,6 +11,8 @@ import DisLike from "../icons/dislike-icon";
 
 
 
+
+
 const SingleMovie = ({movie}) => {
     const {
         title, imgUrl, id, description, publishTime, channelTitle, channelId,
@@ -21,25 +23,27 @@ const SingleMovie = ({movie}) => {
     const [toggleDisLike, setToggleDisLike] = useState(false);
 
     const handleToggleLike = () => {
-
     }
 
     const handleToggleDislike = () => {
-
     }
+
+
+    //Modal
+    //                 isOpen={true}
+    //                 contentLabel="Watch the video"
+    //                 onRequestClose={() => router.back()}
+    //                 className={styles.modal}
+    //                 overlayClassName={styles.overlay}
+
+
 
 
     return (
         <main className={styles.wrap}>
             <Navbar/>
 
-            <Modal
-                isOpen={true}
-                contentLabel="Watch the video"
-                onRequestClose={() => router.back()}
-                className={styles.modal}
-                overlayClassName={styles.overlay}
-            >
+            <div className={styles.modal}>
                 <button onClick={() => router.back()} className={styles.btn}>back</button>
 
                 <iframe
@@ -85,7 +89,7 @@ const SingleMovie = ({movie}) => {
                         </article>
                     </section>
                 </section>
-            </Modal>
+            </div>
         </main>
     );
 };
